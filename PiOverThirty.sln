@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiOverThirty", "PiOverThirty\PiOverThirty.csproj", "{06AB06F1-81D9-42B5-8FE8-9F0723B8866C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendLibs", "BackendLibs\BackendLibs.csproj", "{838911B0-991B-4076-865E-026627762AA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{06AB06F1-81D9-42B5-8FE8-9F0723B8866C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06AB06F1-81D9-42B5-8FE8-9F0723B8866C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06AB06F1-81D9-42B5-8FE8-9F0723B8866C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{838911B0-991B-4076-865E-026627762AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838911B0-991B-4076-865E-026627762AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838911B0-991B-4076-865E-026627762AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{838911B0-991B-4076-865E-026627762AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,8 +19,7 @@ namespace PiOverThirty
         protected override void Start()
         {
             CreateScene();
-
-            LoginManager mngr;
+            
         }
         async void CreateScene()
         {
