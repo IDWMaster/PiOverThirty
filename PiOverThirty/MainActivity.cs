@@ -22,7 +22,6 @@ namespace PiOverThirty
     [Activity(Label = "PiOverThirty", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Backend.FBActivity
     {
-        int count = 1;
         
         protected override void OnCreate(Bundle bundle)
         {
@@ -40,14 +39,18 @@ namespace PiOverThirty
             Xamarin.Facebook.Login.Widget.ProfilePictureView ppp = new Xamarin.Facebook.Login.Widget.ProfilePictureView(this);
             ppp.ProfileId = fb.UserProfile.ProfileID;
             FindViewById<LinearLayout>(Resource.Id.linearLayout1).AddView(ppp);
-
+            
             button.Click += async delegate {
                 try
                 {
                     await fb.Authenticate(this);
                     button.Text = "Logged in to Facebook";
                     button.Enabled = false;
-                }catch(Exception er)
+                    dynamic friendsList = await fb.GetGraphData("me/friends");
+                    button.Text = "Wow "+fb.UserProfile.FirstName+" "+fb.UserProfile.LastName+"! You have "+friendsList["summary"]["total_count"]+" friends!";
+                    
+                }
+                catch(Exception er)
                 {
                     button.Text = er.Message;
                 }

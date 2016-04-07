@@ -14,7 +14,7 @@ using Xamarin.Facebook.Login;
 using System.Threading.Tasks;
 using Java.Lang;
 using System.Runtime.CompilerServices;
-
+using Newtonsoft.Json;
 namespace PiOverThirty.Backend
 {
     public abstract class FBActivity:Activity
@@ -53,10 +53,7 @@ namespace PiOverThirty.Backend
             }
             return tsktsktsk.Task;
         }
-        public void Dispose()
-        {
-
-        }
+        
 
         public void OnCancel()
         {
@@ -73,6 +70,25 @@ namespace PiOverThirty.Backend
             tsktsktsk.SetResult(true);
         }
     }
+    class FBGraphAsyncOperation : Java.Lang.Object, GraphRequest.ICallback
+    {
+        TaskCompletionSource<dynamic> tsktsktsk = new TaskCompletionSource<dynamic>();
+        public void OnCompleted(GraphResponse p0)
+        {
+            try
+            {
+                
+                tsktsktsk.SetResult(JsonConvert.DeserializeObject(p0.RawResponse));
+            }catch(System.Exception er)
+            {
+                tsktsktsk.SetException(er);
+            }
+        }
+        public Task<dynamic> GetTask()
+        {
+            return tsktsktsk.Task;
+        }
+    }
     public class FBAPI
     {
         public void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
@@ -86,6 +102,14 @@ namespace PiOverThirty.Backend
             {
                 Instance = new FBAPI(context);
             }
+        }
+        public Task<dynamic> GetGraphData(string path)
+        {
+            
+
+            var retval = new FBGraphAsyncOperation();
+            new GraphRequest(AccessToken.CurrentAccessToken, path, null, HttpMethod.Get, retval).ExecuteAsync();
+            return retval.GetTask();
         }
         ICallbackManager callbackManager;
         public Task<bool> Authenticate(FBActivity currentActivity)
@@ -105,6 +129,7 @@ namespace PiOverThirty.Backend
             get
             {
                 var p = Profile.CurrentProfile;
+                
                 return new FBProfile() { FirstName = p.FirstName, LastName = p.LastName, Name = p.Name, ProfileURL = new Uri(p.LinkUri.ToString()), ProfileID = p.Id };
             }
         }
