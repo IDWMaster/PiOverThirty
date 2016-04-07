@@ -1828,9 +1828,6 @@ namespace PiOverThirty
 			// aapt resource value: 0x7f0a0070
 			public const int MyButton = 2131361904;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int absoluteLayout1 = 2131361905;
-			
 			// aapt resource value: 0x7f0a0073
 			public const int action0 = 2131361907;
 			
@@ -2025,6 +2022,9 @@ namespace PiOverThirty
 			
 			// aapt resource value: 0x7f0a007c
 			public const int line3 = 2131361916;
+			
+			// aapt resource value: 0x7f0a0071
+			public const int linearLayout1 = 2131361905;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int listMode = 2131361805;
@@ -2410,11 +2410,11 @@ namespace PiOverThirty
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f05004e
-			public const int ApplicationName = 2131034190;
-			
 			// aapt resource value: 0x7f05004d
-			public const int Hello = 2131034189;
+			public const int ApplicationName = 2131034189;
+			
+			// aapt resource value: 0x7f05004c
+			public const int Hello = 2131034188;
 			
 			// aapt resource value: 0x7f050026
 			public const int abc_action_bar_home_description = 2131034150;
@@ -2479,8 +2479,8 @@ namespace PiOverThirty
 			// aapt resource value: 0x7f05004f
 			public const int app_id = 2131034191;
 			
-			// aapt resource value: 0x7f05004c
-			public const int app_name = 2131034188;
+			// aapt resource value: 0x7f05004e
+			public const int app_name = 2131034190;
 			
 			// aapt resource value: 0x7f050001
 			public const int auth_google_play_services_client_facebook_display_name = 2131034113;
